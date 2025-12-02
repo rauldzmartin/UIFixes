@@ -1,4 +1,20 @@
-# UI Fixes
+# UI Fixes (QuickSell Hotfix Fork)
+
+> **This is a modified fork of [Tyfon.UIFixes](https://github.com/tyfon7/UIFixes) containing a critical server-side hotfix.**
+
+## 🛠️ Hotfix Details
+This fork patches a bug in the "QuickSell" feature that causes server errors and potential profile corruption.
+
+*   **The Issue:** When selling an item assigned to a FastAccess slot (hotkey) via the QuickSell menu, the item was removed from the inventory but the hotkey assignment persisted. This caused server errors (`FastAccess item ... not found`) when the game tried to access the non-existent item.
+*   **The Fix:** Implemented a Harmony patch (`FastAccessCleaner.cs`) in the Server component that intercepts item removal events. It automatically checks if the removed item was assigned to a FastAccess slot and clears the assignment safely.
+*   **Technical:** Patches `SPTarkov.Server.Core.Services.SaveServer.RemoveItem` to clean up `pmcProfile.FastAccess`.
+
+**Credits:**
+The fix was analyzed and implemented with the assistance of **Google Gemini 3 Pro** and the **Antigravity** agentic coding system.
+
+---
+
+# UI Fixes (Original Description)
 
 Quality of life improvements and fixes for SPT
 
