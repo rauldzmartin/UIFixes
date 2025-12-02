@@ -3,14 +3,14 @@
 > **This is a modified fork of [Tyfon.UIFixes](https://github.com/tyfon7/UIFixes) containing a critical server-side hotfix.**
 
 ## 🛠️ Hotfix Details
-This fork patches a bug in the "QuickSell" feature that causes server errors and potential profile corruption.
+This fork includes a server-side patch that fixes errors triggered by mods like **QuickSellFlea**.
 
-*   **The Issue:** When selling an item assigned to a FastAccess slot (hotkey) via the QuickSell menu, the item was removed from the inventory but the hotkey assignment persisted. This caused server errors (`FastAccess item ... not found`) when the game tried to access the non-existent item.
-*   **The Fix:** Implemented a Harmony patch (`FastAccessCleaner.cs`) in the Server component that intercepts item removal events. It automatically checks if the removed item was assigned to a FastAccess slot and clears the assignment safely.
-*   **Technical:** Patches `SPTarkov.Server.Core.Services.SaveServer.RemoveItem` to clean up `pmcProfile.FastAccess`.
+*   **The Issue:** When an external mod (like QuickSellFlea) removes an item assigned to a FastAccess slot (hotkey), the SPT Server Core fails to clear the hotkey assignment. This leaves a "ghost" reference, causing `FastAccess item ... not found` errors.
+*   **The Fix:** Implemented a Harmony patch (`FastAccessCleaner.cs`) in `UIFixes.Server` that acts as a safety net. It intercepts `SaveServer.RemoveItem` and ensures the `FastAccess` dictionary is sanitized whenever an item is removed.
+*   **Technical:** Patches `SPTarkov.Server.Core.Services.SaveServer.RemoveItem`.
 
 **Credits:**
-The fix was analyzed and implemented with the assistance of **Google Gemini 3 Pro** and the **Antigravity** agentic coding system.
+The issue was diagnosed as an SPT/QuickSell interaction and fixed with the assistance of **Google Gemini 3 Pro** and the **Antigravity** agentic coding system.
 
 ---
 
