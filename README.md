@@ -1,20 +1,4 @@
-# UI Fixes (QuickSell Hotfix Fork)
-
-> **This is a modified fork of [Tyfon.UIFixes](https://github.com/tyfon7/UIFixes) containing a critical server-side hotfix.**
-
-## 🛠️ Hotfix Details
-This fork includes a server-side patch that fixes errors triggered by mods like **QuickSellFlea**.
-
-*   **The Issue:** When an external mod (like QuickSellFlea) removes an item assigned to a FastAccess slot (hotkey), the SPT Server Core fails to clear the hotkey assignment. This leaves a "ghost" reference, causing `FastAccess item ... not found` errors.
-*   **The Fix:** Implemented a Harmony patch (`FastAccessCleaner.cs`) in `UIFixes.Server` that acts as a safety net. It intercepts `SaveServer.RemoveItem` and ensures the `FastAccess` dictionary is sanitized whenever an item is removed.
-*   **Technical:** Patches `SPTarkov.Server.Core.Services.SaveServer.RemoveItem`.
-
-**Credits:**
-The issue was diagnosed as an SPT/QuickSell interaction and fixed with the assistance of **Google Gemini 3 Pro** and the **Antigravity** agentic coding system.
-
----
-
-# UI Fixes (Original Description)
+# UI Fixes
 
 Quality of life improvements and fixes for SPT
 

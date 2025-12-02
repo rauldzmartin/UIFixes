@@ -13,24 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="SPTarkov.Common">
-      <HintPath>/home/ubuntu/fika-spt-server-docker/server/SPT/SPTarkov.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="SPTarkov.DI">
-      <HintPath>/home/ubuntu/fika-spt-server-docker/server/SPT/SPTarkov.DI.dll</HintPath>
-    </Reference>
-    <Reference Include="SPTarkov.Reflection">
-      <HintPath>/home/ubuntu/fika-spt-server-docker/server/SPT/SPTarkov.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="SPTarkov.Server.Core">
-      <HintPath>/home/ubuntu/fika-spt-server-docker/server/SPT/SPTarkov.Server.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="SemanticVersioning">
-      <HintPath>/home/ubuntu/fika-spt-server-docker/server/SPT/SemanticVersioning.dll</HintPath>
-    </Reference>
-    <Reference Include="0Harmony">
-      <HintPath>/home/ubuntu/fika-spt-server-docker/server/SPT/0Harmony.dll</HintPath>
-    </Reference>
+    <PackageReference Include="SPTarkov.Common" Version="4.0.3" />
+    <PackageReference Include="SPTarkov.DI" Version="4.0.3" />
+    <PackageReference Include="SPTarkov.Reflection" Version="4.0.3" />
+    <PackageReference Include="SPTarkov.Server.Core" Version="4.0.5" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" />
   </ItemGroup>
 
 </Project>
